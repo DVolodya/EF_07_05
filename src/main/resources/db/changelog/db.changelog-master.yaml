@@ -1,26 +1,130 @@
 databaseChangeLog:
   - changeSet:
       id: 1
-      author: author
+      author: your_name
       changes:
         - createTable:
             tableName: users
             columns:
               - column:
                   name: id
-                  type: bigint
+                  type: int
                   constraints:
                     primaryKey: true
                     nullable: false
+                    autoincrement: true
               - column:
-                  name: email
-                  type: varchar(255)
+                  name: username
+                  type: varchar(50)
                   constraints:
-                    unique: true
                     nullable: false
               - column:
                   name: password
                   type: varchar(255)
                   constraints:
                     nullable: false
-  # Добавьте аналогичные блоки для других таблиц
+              - column:
+                  name: email
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 2
+      author: your_name
+      changes:
+        - createTable:
+            tableName: posts
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    autoincrement: true
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: content
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 3
+      author: your_name
+      changes:
+        - createTable:
+            tableName: comments
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    autoincrement: true
+              - column:
+                  name: post_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: content
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 4
+      author: your_name
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: posts
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+
+  - changeSet:
+      id: 5
+      author: your_name
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: comments
+            baseColumnNames: post_id
+            referencedTableName: posts
+            referencedColumnNames: id
+
+  - changeSet:
+      id: 6
+      author: your_name
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: comments
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id

@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import sla.ef_07_05.model.Card;
+import sla.ef_07_05.repository.CardRepository;
 
 import java.util.Arrays;
 import java.util.List;
