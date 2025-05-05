@@ -3,6 +3,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sla.ef_07_05.Exception.ResourceNotFoundException;
 import sla.ef_07_05.model.Card;
 import sla.ef_07_05.service.CardService;
 import org.springframework.web.bind.annotation.*;

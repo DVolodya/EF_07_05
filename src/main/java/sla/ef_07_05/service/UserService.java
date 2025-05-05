@@ -2,6 +2,7 @@ package sla.ef_07_05.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import sla.ef_07_05.Exception.ResourceNotFoundException;
 import sla.ef_07_05.model.User;
 import sla.ef_07_05.repository.UserRepository;
 

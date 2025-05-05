@@ -1,7 +1,9 @@
 package sla.ef_07_05.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sla.ef_07_05.Exception.ResourceNotFoundException;
 import sla.ef_07_05.model.Card;
+import sla.ef_07_05.repository.CardRepository;
 
 import java.util.List;
 import java.util.Optional;
