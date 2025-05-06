@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: 1
-      author: your_name
+      author: user
       changes:
         - createTable:
             tableName: users
@@ -31,7 +31,7 @@ databaseChangeLog:
 
   - changeSet:
       id: 2
-      author: your_name
+      author: user
       changes:
         - createTable:
             tableName: posts
@@ -66,7 +66,7 @@ databaseChangeLog:
 
   - changeSet:
       id: 3
-      author: your_name
+      author: user
       changes:
         - createTable:
             tableName: comments
@@ -101,30 +101,32 @@ databaseChangeLog:
 
   - changeSet:
       id: 4
-      author: your_name
+      author: user
       changes:
         - addForeignKeyConstraint:
             baseTableName: posts
             baseColumnNames: user_id
             referencedTableName: users
             referencedColumnNames: id
-
+            constraintName: fk1_user_details
   - changeSet:
       id: 5
-      author: your_name
+      author: user
       changes:
         - addForeignKeyConstraint:
             baseTableName: comments
             baseColumnNames: post_id
             referencedTableName: posts
             referencedColumnNames: id
+            constraintName: fk2_user_details
 
   - changeSet:
       id: 6
-      author: your_name
+      author: user
       changes:
         - addForeignKeyConstraint:
             baseTableName: comments
             baseColumnNames: user_id
             referencedTableName: users
             referencedColumnNames: id
+            constraintName: fk3_user_details
