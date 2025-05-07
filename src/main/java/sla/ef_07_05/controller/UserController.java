@@ -21,13 +21,11 @@ public class UserController {
         this.userService = userService;
     }
 
-    // Получение всех пользователей
     @GetMapping
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    // Получение пользователя по ID
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         Optional<User> user = userService.getUserById(id);
@@ -35,14 +33,12 @@ public class UserController {
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
-    // Регистрация нового пользователя
     @PostMapping
     public ResponseEntity<User> registerUser(@RequestBody User user) {
         User createdUser = userService.registerUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
 
-    // Обновление пользователя
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
         try {
@@ -53,7 +49,6 @@ public class UserController {
         }
     }
 
-    // Удаление пользователя
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         try {

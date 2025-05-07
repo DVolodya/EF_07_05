@@ -22,13 +22,11 @@ public class CardController {
         this.cardService = cardService;
     }
 
-    // Получение всех карточек
     @GetMapping
     public List<Card> getAllCards() {
         return cardService.getAllCards();
     }
 
-    // Получение карточки по ID
     @GetMapping("/{id}")
     public ResponseEntity<Card> getCardById(@PathVariable Long id) {
         Optional<Card> card = cardService.getCardById(id);
@@ -36,14 +34,12 @@ public class CardController {
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
-    // Создание новой карточки
     @PostMapping
     public ResponseEntity<Card> createCard(@RequestBody Card card) {
         Card createdCard = cardService.createCard(card);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdCard);
     }
 
-    // Обновление карточки
     @PutMapping("/{id}")
     public ResponseEntity<Card> updateCard(@PathVariable Long id, @RequestBody Card card) {
         try {
@@ -54,7 +50,6 @@ public class CardController {
         }
     }
 
-    // Удаление карточки
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCard(@PathVariable Long id) {
         try {

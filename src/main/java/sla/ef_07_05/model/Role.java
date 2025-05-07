@@ -32,6 +32,5 @@ public class Role {
     public Long getId() {
         return id;
     }
-    // Геттеры и сеттеры
 }
 

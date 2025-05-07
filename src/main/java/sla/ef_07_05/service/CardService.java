@@ -18,22 +18,18 @@ public class CardService {
         this.cardRepository = cardRepository;
     }
 
-    // Получение всех карточек
     public List<Card> getAllCards() {
         return cardRepository.findAll();
     }
 
-    // Получение карточки по ID
     public Optional<Card> getCardById(Long id) {
         return cardRepository.findById(id);
     }
 
-    // Создание новой карточки
     public Card createCard(Card card) {
         return cardRepository.save(card);
     }
 
-    // Обновление существующей карточки
     public Card updateCard(Long id, Card card) {
         if (cardRepository.existsById(id)) {
             card.setId(id);
@@ -43,7 +39,6 @@ public class CardService {
         }
     }
 
-    // Удаление карточки
     public void deleteCard(Long id) {
         if (cardRepository.existsById(id)) {
             cardRepository.deleteById(id);

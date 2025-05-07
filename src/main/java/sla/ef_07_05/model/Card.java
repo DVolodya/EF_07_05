@@ -74,7 +74,6 @@ public class Card {
         this.balance = balance;
     }
 
-    // геттеры и сеттеры
 }
 
 enum CardStatus {
