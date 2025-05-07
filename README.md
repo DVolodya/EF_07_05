@@ -107,7 +107,7 @@ http://localhost:PORT/swagger-ui/index.html
 
 1. **Клонировать репозиторий**
    ```bash
-   git clone https://github.com/notAckerman/effective-mobile-task/tree/564be413adb386d01d196e3f14389ff243ab9272
+   git clone git@github.com:DVolodya/EF_07_05.git
    ```
 2. **Запустить проект**
    Откройте терминал в директории проекта и выполните команду:
