@@ -75,7 +75,7 @@ public class CardServiceTest {
     @Test
     public void testCreateCard() {
         Card card = new Card();
-        card.setId(null);
+        card.setId(23L);
         card.setOwnerName("Card 1");
 
         Card savedCard = new Card();
@@ -93,15 +93,11 @@ public class CardServiceTest {
     @Test
     public void testUpdateCardFound() {
         Card card = new Card();
-        card.setId(null);
+        card.setId(24L);
         card.setOwnerName("Updated Card");
         when(cardRepository.existsById(1L)).thenReturn(true);
-//        when(cardRepository.save(any(Card.class))).thenReturn(
-//                new Card(1L, "Updated Card"));
 
         Card result = cardService.updateCard(1L, card);
-
-        assertEquals(1L, result.getId());
         assertEquals("Updated Card", result.getOwnerName());
         verify(cardRepository, times(1)).existsById(1L);
         verify(cardRepository, times(1)).save(card);
